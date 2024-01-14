@@ -1,0 +1,23 @@
+{
+    "123": {
+        "nazov": "Stretávka tried zo ZŠ Topoľčiaky ročník 1983",
+        "obrazok": "https://via.placeholder.com/150",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "video": "https://www.youtube.com/embed/i5noslyZANA",
+        "stiahnutie": "https://drive.google.com/drive/folders/1pnJXAGRbTDVQoj1ZOGVaoIL9lB60Wc9M?usp=sharing"
+    },
+    "456": {
+        "nazov": "Test",
+        "obrazok": "https://via.placeholder.com/150",
+        "text": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "video": "https://www.example.com/another-video.mp4",
+        "stiahnutie": "https://www.example.com/another-download"
+    },
+    "stretavka23": {
+        "nazov": "Stretávka tried zo ZŠ Topoľčiaky ročník 1983",
+        "obrazok": "https://via.placeholder.com/150",
+        "text": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "video": "https://www.youtube.com/embed/i5noslyZANA",
+        "stiahnutie": "https://drive.google.com/drive/folders/1pnJXAGRbTDVQoj1ZOGVaoIL9lB60Wc9M?usp=sharing"
+    }
+}
