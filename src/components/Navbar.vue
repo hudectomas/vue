@@ -41,7 +41,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-/* prispôsobte štýl podľa potreby */
-</style>

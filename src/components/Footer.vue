@@ -11,29 +11,26 @@
 </template>
 
 <script>
-import { ref, watchEffect } from 'vue';
-
 export default {
   name: 'Footer',
-  setup() {
-    const currentYear = ref(new Date().getFullYear());
-
-    // Update the current year dynamically
-    watchEffect(() => {
-      const updateYearInterval = setInterval(() => {
-        currentYear.value = new Date().getFullYear();
-      }, 60000); // Update every minute
-
-      // Clear the interval when the component is unmounted
-      return () => clearInterval(updateYearInterval);
-    });
-
-    const copyrightText = `© ${currentYear.value} Jasa Production s.r.o. All rights reserved.`;
-
+  data() {
     return {
-      currentYear,
-      copyrightText,
+      currentYear: new Date().getFullYear(),
+      updateYearInterval: null,
     };
+  },
+  mounted() {
+    this.updateYearInterval = setInterval(() => {
+      this.currentYear = new Date().getFullYear();
+    }, 60000); // Update every minute
+  },
+  beforeUnmount() {
+    clearInterval(this.updateYearInterval);
+  },
+  computed: {
+    copyrightText() {
+      return `© ${this.currentYear} Jasa Production s.r.o. All rights reserved.`;
+    },
   },
 };
 </script>

@@ -36,74 +36,62 @@
 
 <script>
 import axios from 'axios';
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 export default {
   name: 'YourComponentName',
-  setup() {
-    const heslo = ref('');
-    const chyba = ref('');
-    const zaznam = ref(null);
-    const zobrazitData = ref(false);
-    const hesla = ref([]);
-    
-    const rules = [
-      value => {
-        if (value) return true;
-        return 'Musíte zadať heslo.';
-      },
-    ];
+  data() {
+    return {
+      heslo: '',
+      chyba: '',
+      zaznam: null,
+      zobrazitData: false,
+      hesla: [],
+      rules: [
+        value => {
+          if (value) return true;
+          return 'Musíte zadať heslo.';
+        },
+      ],
+    };
+  },
+  methods: {
+    async odoslatFormular() {
+      this.zobrazitData = false;
 
-    const odoslatFormular = async () => {
-      zobrazitData.value = false;
-
-      if (hesla.value.includes(heslo.value)) {
+      if (this.hesla.includes(this.heslo)) {
         try {
           const response = await axios.get('./src/data.json');
           const data = response.data;
 
-          const zaznamData = data[heslo.value];
+          const zaznamData = data[this.heslo];
 
           if (zaznamData) {
-            zaznam.value = zaznamData;
-            chyba.value = '';
-            zobrazitData.value = true;
+            this.zaznam = zaznamData;
+            this.chyba = '';
+            this.zobrazitData = true;
           } else {
-            chyba.value = 'Nesprávne heslo. Skúste to znova.';
+            this.chyba = 'Nesprávne heslo. Skúste to znova.';
           }
         } catch (error) {
           console.error('Chyba pri načítavaní údajov:', error);
-          chyba.value = 'Chyba pri načítavaní údajov.';
+          this.chyba = 'Chyba pri načítavaní údajov.';
         }
       } else {
-        chyba.value = 'Nesprávne heslo. Skúste to znova.';
+        this.chyba = 'Nesprávne heslo. Skúste to znova.';
       }
-    };
-
-    const fetchData = async () => {
+    },
+    async fetchData() {
       try {
         const response = await axios.get('./src/data.json');
-        hesla.value = Object.keys(response.data);
+        this.hesla = Object.keys(response.data);
       } catch (error) {
         console.error('Chyba pri načítavaní hesiel:', error);
       }
-    };
-
-    fetchData();
-
-    return {
-      heslo,
-      chyba,
-      zaznam,
-      zobrazitData,
-      hesla,
-      rules,
-      odoslatFormular,
-    };
+    },
+  },
+  mounted() {
+    this.fetchData();
   },
 };
 </script>
-
-<style scoped>
-/* Your styles here */
-</style>

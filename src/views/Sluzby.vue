@@ -15,16 +15,14 @@ export default {
   components: {
     CennikComponent,
   },
-  setup() {
+  data() {
     const store = useStore();
 
-    const addToComparison = (sluzba) => {
-      store.addToComparison(sluzba);
-      console.log('Služba přidána do porovnání:', sluzba);
-    };
-
     return {
-      addToComparison,
+      addToComparison(sluzba) {
+        store.addToComparison(sluzba);
+        console.log('Pridané do porovnania:', sluzba);
+      },
     };
   },
 };

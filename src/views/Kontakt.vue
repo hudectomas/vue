@@ -59,14 +59,10 @@ export default {
   },
   methods: {
     submitForm() {
-      // Handle form submission logic here
+
       console.log('Form submitted:', this.formData);
-      // You can add logic to send form data to a server, etc.
+
     },
   },
 };
 </script>
-
-<style scoped>
-/* Add styles if needed */
-</style>

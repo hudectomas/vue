@@ -33,19 +33,16 @@
 import { useStore } from '../stores/store';
 
 export default {
-  setup() {
+  data() {
     const store = useStore();
 
-    const porovnaneSluzby = store.porovnaneSluzby;
-    const headers = [
-      { title: 'Služba', value: 'nazov' },
-      { title: 'Cena', value: 'cena' },
-      { title: 'Základné informácie', value: 'info' },
-    ];
-
     return {
-      porovnaneSluzby,
-      headers,
+      porovnaneSluzby: store.porovnaneSluzby,
+      headers: [
+        { title: 'Služba', value: 'nazov' },
+        { title: 'Cena', value: 'cena' },
+        { title: 'Základné informácie', value: 'info' },
+      ],
     };
   },
 };

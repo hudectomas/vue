@@ -8,15 +8,14 @@
 </template>
 
 <script>
+import { ref } from 'vue';
+
 export default {
   props: ['zakazka'],
-  setup(props) {
-    const zakazka = props.zakazka;
-
+  data() {
     return {
-      zakazka,
+      zakazka: ref(this.zakazka),
     };
   },
 };
 </script>
-
