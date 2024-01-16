@@ -1,21 +1,23 @@
 <template>
-  <div v-if="zakazka">
-    <h2>{{ zakazka.nazov }}</h2>
-  </div>
-  <div v-else>
-    <p>UPS, nie je tu žiaden obsah. Skúste prosím zadať iné heslo alebo to skúste neskôr.</p>
+  <div>
+    <ZakazkaObsahComponent :zakazka="zakazka" v-if="zakazka" />
+    <div v-else>
+      <p>UPS, nie je tu žiaden obsah. Skúste prosím zadať iné heslo alebo to skúste neskôr.</p>
+    </div>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue';
+import ZakazkaObsahComponent from './ZakazkaObsahComponent.vue';
 
 export default {
   props: ['zakazka'],
-  data() {
-    return {
-      zakazka: ref(this.zakazka),
-    };
+  components: {
+    ZakazkaObsahComponent,
   },
 };
 </script>
+
+<style scoped>
+/* Add your component-specific styles here */
+</style>

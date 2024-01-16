@@ -12,7 +12,7 @@
     </div>
     <div class="theme-button">
       <v-btn @click="toggleTheme">
-        <v-icon>{{ theme.global.current.value.dark ? 'mdi-white-balance-sunny' : 'mdi-weather-night' }}</v-icon>
+        <v-icon>{{ themeIcon }}</v-icon>
         Zmeniť tému
       </v-btn>
     </div>
@@ -23,21 +23,32 @@
 </template>
 
 <script>
+import { ref, watch } from 'vue';
 import { useTheme } from 'vuetify';
 
 export default {
   name: 'Navbar',
   setup() {
     const theme = useTheme();
+    const themeIcon = ref(theme.global.current.value.dark ? 'mdi-white-balance-sunny' : 'mdi-weather-night');
 
     const toggleTheme = () => {
       theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark';
     };
 
+    watch(() => {
+      themeIcon.value = theme.global.current.value.dark ? 'mdi-white-balance-sunny' : 'mdi-weather-night';
+    });
+
     return {
       theme,
+      themeIcon,
       toggleTheme,
     };
   },
 };
 </script>
+
+<style scoped>
+/* Add your component-specific styles here */
+</style>
