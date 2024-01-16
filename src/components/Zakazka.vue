@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import ZakazkaObsahComponent from './ZakazkaObsahComponent.vue';
+import ZakazkaObsahComponent from './ZakazkaObsah.vue';
 
 export default {
   props: ['zakazka'],
