@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="container">
+
     <v-form @submit.prevent="odoslatFormular" class="form">
       <v-text-field
         v-if="!zobrazitData"
@@ -11,7 +11,6 @@
     </v-form>
     <v-alert v-if="chyba" type="error" class="error-message">{{ chyba }}</v-alert>
 
-    <!-- Zobrazenie údajov z formulára -->
     <v-row v-if="zobrazitData" class="content-container">
       <v-col cols="12">
         <h2>{{ zaznam.nazov }}</h2>
@@ -31,7 +30,7 @@
         </p>
       </v-col>
     </v-row>
-  </v-container>
+
 </template>
 
 <script>

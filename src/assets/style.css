@@ -5,7 +5,6 @@
 }
 
 
-/* Add styles for the image gallery */
 
 .image-gallery {
     margin-top: 20px;
@@ -51,77 +50,61 @@ v-icon {
 
 .navbar {
     background-color: #fbaf3f;
-    /* Orange background color */
     padding: 10px;
     display: flex;
     justify-content: space-between;
-    /* Align items to both ends */
     align-items: center;
     flex-wrap: wrap;
-    /* Allow items to wrap to the next line on small screens */
 }
 
 .nav-logo {
     margin-right: 15px;
-    /* Adjust margin for logo spacing */
 }
 
 .logo {
     width: 50px;
-    /* Set the desired width for your logo */
 }
 
 .nav-links {
     display: flex;
     justify-content: center;
-    /* Move main links to the center */
     flex-grow: 1;
-    /* Allow the links to take up available space */
 }
 
 .nav-link {
     text-decoration: none;
     color: white;
-    /* White text color */
     margin: 0 15px;
-    /* Add spacing between links */
 }
 
 .nav-button {
     text-decoration: none;
     color: white;
-    /* White text color */
     background-color: #ff6347;
-    /* Tomato color for button background */
     padding: 10px 15px;
     border-radius: 20px;
-    /* Round the corners to make an oval shape */
     transition: background-color 0.3s ease;
 }
 
 .nav-button:hover {
     background-color: #e0482b;
-    /* Darker shade on hover */
+    
 }
 
 
-/* Media query for smaller screens */
 
 @media (max-width: 768px) {
     .nav-links {
         flex-direction: column;
-        /* Display links in a column on smaller screens */
+        
         align-items: center;
-        /* Center items in the column */
+        
     }
     .nav-link {
         margin: 10px 0;
-        /* Add spacing between links in the column */
+       
     }
 }
-
-
-/* Footer Styles */
 
 .footer-container {
     position: fixed;

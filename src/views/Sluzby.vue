@@ -1,6 +1,7 @@
 <template>
   <v-container class="sluzby-container">
     <h1>Služby</h1>
+    <p>Ponúkame širokú škálu služieb, ktorými pokrývame celý trh s videoprodukciou.</p>
 
     <CennikComponent @add-to-comparison="addToComparison" />
 

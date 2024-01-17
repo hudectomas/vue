@@ -1,12 +1,11 @@
 <template>
-  <v-footer app>
-    <v-container>
+  <v-footer class="d-flex flex-column" app>
       <v-row>
         <v-col>
           <h3>{{ copyrightText }}</h3>
         </v-col>
       </v-row>
-    </v-container>
+
   </v-footer>
 </template>
 
@@ -22,19 +21,15 @@ export default {
   mounted() {
     this.updateYearInterval = setInterval(() => {
       this.currentYear = new Date().getFullYear();
-    }, 60000); // Update every minute
+    }, 60000);
   },
   beforeUnmount() {
     clearInterval(this.updateYearInterval);
   },
   computed: {
     copyrightText() {
-      return `© ${this.currentYear} Jasa Production s.r.o. All rights reserved.`;
+      return `© ${this.currentYear} Jasa Production s.r.o.`;
     },
   },
 };
 </script>
-
-<style scoped>
-/* Customize the style as needed */
-</style>
