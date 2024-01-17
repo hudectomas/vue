@@ -23,20 +23,26 @@
 </template>
 
 <script>
-import { ref, watch } from 'vue';
+import { ref, watchEffect } from 'vue';
 import { useTheme } from 'vuetify';
 
 export default {
   name: 'Navbar',
   setup() {
     const theme = useTheme();
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+      theme.global.name.value = storedTheme;
+    }
     const themeIcon = ref(theme.global.current.value.dark ? 'mdi-white-balance-sunny' : 'mdi-weather-night');
 
     const toggleTheme = () => {
-      theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark';
+      const newTheme = theme.global.current.value.dark ? 'light' : 'dark';
+      theme.global.name.value = newTheme;
+      localStorage.setItem('theme', newTheme);
     };
 
-    watch(() => {
+    watchEffect(() => {
       themeIcon.value = theme.global.current.value.dark ? 'mdi-white-balance-sunny' : 'mdi-weather-night';
     });
 

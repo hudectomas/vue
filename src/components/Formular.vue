@@ -38,7 +38,7 @@ import axios from 'axios';
 import { ref, onMounted } from 'vue';
 
 export default {
-  name: 'YourComponentName',
+  emits: ['zobrazZakazku'],
   data() {
     return {
       heslo: '',
